@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller as BaseController;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\SignupRequest;
 use App\Http\Resources\ErrorResource;
@@ -11,9 +11,7 @@ use App\Http\Resources\UserResource;
 use App\Services\Contracts\Auth\AuthServiceInterface;
 use Throwable;
 
-// App\Http\Controllers\Auth\AuthController
-
-class AuthController extends BaseController
+class AuthController extends Controller
 {
     /**
      * Service instance.

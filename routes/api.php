@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Blog\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +20,11 @@ Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::apiResource('articles', ArticleController::class);
 
 });

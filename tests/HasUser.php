@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Models\Article;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,7 @@ trait HasUser
     /**
      * User model.
      *
-     * @var App\Models\User
+     * @var App\Models\User|Illuminate\Contracts\Auth\Authenticatable
      */
     private $user;
 
@@ -49,6 +50,12 @@ trait HasUser
 
         $this->user = User::factory()
             ->create($data);
+
+        // Article::factory(10)->create(['user_id' => $this->user->id])->each(function ($article) {
+
+        // });
+
+        Article::factory(10)->create(['user_id' => $this->user->id]);
 
         return $this->user;
     }

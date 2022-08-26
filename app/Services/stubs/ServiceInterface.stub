@@ -1,0 +1,8 @@
+<?php
+
+namespace {{ namespace }}\{{ class }};
+
+interface {{ class }}ServiceInterface
+{
+    // TODO Implement it
+}

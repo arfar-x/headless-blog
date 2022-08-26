@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ namespace }}\{{ class }};
+
+use App\Models\{{ class }};
+use App\Services\Contracts\Repository;
+
+class {{ class }}Repository extends Repository
+{
+    /**
+     * Return the model instance.
+     *
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function model()
+    {
+        return app({{ class }}::class);
+    }
+}

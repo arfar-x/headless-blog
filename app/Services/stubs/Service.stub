@@ -1,0 +1,26 @@
+<?php
+
+namespace {{ namespace }}\{{ class }};
+
+use {{ namespace }}\{{ class }}\{{ class }}Repository;
+use {{ namespace }}\Contracts\{{ class }}\{{ class }}ServiceInterface;
+
+class {{ class }}Service implements {{ class }}ServiceInterface
+{
+    /**
+     * Repository instance.
+     */
+    protected {{ class }}Repository $repo;
+
+    /**
+     * Initialize with repository instance
+     *
+     * @param {{ class }}Repository $repo
+     */
+    public function __construct({{ class }}Repository $repo)
+    {
+        $this->repo = $repo;
+
+        return $this;
+    }
+}
