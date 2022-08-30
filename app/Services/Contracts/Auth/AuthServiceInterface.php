@@ -2,10 +2,9 @@
 
 namespace App\Services\Contracts\Auth;
 
-use App\Services\Contracts\ServiceInterface;
 use Illuminate\Http\Request;
 
-interface AuthServiceInterface extends ServiceInterface
+interface AuthServiceInterface
 {
     /**
      * Login user with validated credentials

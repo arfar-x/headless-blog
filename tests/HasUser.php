@@ -17,7 +17,7 @@ trait HasUser
     /**
      * User model.
      *
-     * @var App\Models\User|Illuminate\Contracts\Auth\Authenticatable
+     * @var \App\Models\User|\Illuminate\Contracts\Auth\Authenticatable
      */
     private $user;
 
