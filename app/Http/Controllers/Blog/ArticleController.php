@@ -10,7 +10,6 @@ use App\Http\Resources\Blog\Article\ArticleCollection;
 use App\Http\Resources\Blog\Article\ArticleResource;
 use App\Http\Resources\ErrorResource;
 use App\Services\Contracts\Article\ArticleServiceInterface;
-use Illuminate\Http\Request;
 use Throwable;
 
 class ArticleController extends Controller
@@ -33,7 +32,7 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Illuminate\Http\Resources\Json\JsonResource
      */
     public function index()
     {
@@ -53,7 +52,7 @@ class ArticleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreArticleRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return Illuminate\Http\Resources\Json\JsonResource
      */
     public function store(StoreArticleRequest $request)
     {
@@ -73,7 +72,7 @@ class ArticleController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
+     * @return Illuminate\Http\Resources\Json\JsonResource
      */
     public function show(Article $article)
     {
@@ -94,7 +93,7 @@ class ArticleController extends Controller
      *
      * @param  \App\Http\Requests\UpdateArticleRequest  $request
      * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
+     * @return Illuminate\Http\Resources\Json\JsonResource
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
@@ -114,7 +113,7 @@ class ArticleController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
+     * @return Illuminate\Http\Resources\Json\JsonResource
      */
     public function destroy(Article $article)
     {

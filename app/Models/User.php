@@ -51,4 +51,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+    /**
+     * Provide a relation between users and their articles' comments.
+     *
+     * @return Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function comments()
+    {
+        return $this->hasManyThrough(Comment::class, Article::class);
+    }
 }

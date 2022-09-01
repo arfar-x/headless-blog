@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Blog\ArticleController;
+use App\Http\Controllers\Blog\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +27,11 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('articles', ArticleController::class);
+
+    // Route::apiResource('articles/{article}/comments', CommentController::class);
+
+    Route::prefix('articles/{article}')->group(function () {
+        Route::apiResource('/comments', CommentController::class);
+    });
 
 });

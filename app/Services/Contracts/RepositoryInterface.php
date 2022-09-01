@@ -2,44 +2,60 @@
 
 namespace App\Services\Contracts;
 
-use App\Models\User;
-
 interface RepositoryInterface
 {
     /**
      * Return the model instance.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function model();
 
     /**
-     * Set the user model that the resource belongs to.
+     * Set model instance.
      *
-     * @return App\Models\User|Illuminate\Contracts\Auth\Authenticatable
+     * @return self
      */
-    // public function user();
+    public function setModel($model);
 
     /**
-     * Retrieve resources as paginated.
+     * Get all resources as paginated.
      *
-     * @return Illuminate\Contracts\Pagination\Paginator
-     */
-    public function getAllPaginated(int $perPage = null);
-
-    /**
-     * Get resources that belong to user model.
-     *
-     * @param User $user
      * @param integer $perPage
      * @return Illuminate\Contracts\Pagination\Paginator
      */
-    public function getAllPaginatedForUser(User $user, int $perPage = null);
+    public function getAllPaginated(int $perPage);
 
     /**
-     * Create a new resource in the storage.
+     * Create a new resource.
      *
+     * @param array $data
      * @return false|Illuminate\Database\Eloquent\Model
      */
     public function create(array $data);
+
+    /**
+     * Retrieve an existed resource from storage.
+     *
+     * @param int|Illuminate\Database\Eloquent\Model $resource
+     * @return false|Illuminate\Database\Eloquent\Model
+     */
+    public function show($resource);
+
+    /**
+     * Update an existed resource in storage.
+     *
+     * @param int|Illuminate\Database\Eloquent\Model $resource
+     * @param array $data
+     * @return false|Illuminate\Database\Eloquent\Model
+     */
+    public function update($resource, array $data);
+
+    /**
+     * Delete an existed resource from storage.
+     * 
+     * @param int|Illuminate\Database\Eloquent\Model $resource
+     * @return false|Illuminate\Database\Eloquent\Model
+     */
+    public function destroy($resource);
 }

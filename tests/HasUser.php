@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Models\Article;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -51,11 +52,9 @@ trait HasUser
         $this->user = User::factory()
             ->create($data);
 
-        // Article::factory(10)->create(['user_id' => $this->user->id])->each(function ($article) {
-
-        // });
-
-        Article::factory(10)->create(['user_id' => $this->user->id]);
+        Article::factory(10)->create(['user_id' => $this->user->id])->each(function ($article) {
+            Comment::factory(20)->create(['article_id' => $article->id]);
+        });
 
         return $this->user;
     }

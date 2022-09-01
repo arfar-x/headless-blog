@@ -28,4 +28,14 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    /**
+     * Specify a Many-to-Many relation.
+     *
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

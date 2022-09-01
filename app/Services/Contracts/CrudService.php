@@ -4,7 +4,7 @@ namespace App\Services\Contracts;
 
 use App\Models\User;
 
-abstract class CrudService
+abstract class CrudService implements CrudRepositoryInterface
 {
     /**
      * Repository instance.

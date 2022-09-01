@@ -4,7 +4,7 @@ namespace App\Services\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class Repository
+abstract class Repository implements RepositoryInterface
 {
     /**
      * Paginate per page number.
@@ -33,6 +33,11 @@ abstract class Repository
      */
     public function setModel($model)
     {
+        /**
+         * TODO There should be a way that to detect each service's query builder dynamically.
+         *  Not by hard-coding and writing absolute query builder.
+         */
+
         $this->model = $model;
 
         return $this;
