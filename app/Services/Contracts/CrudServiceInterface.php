@@ -4,7 +4,7 @@ namespace App\Services\Contracts;
 
 use App\Models\User;
 
-interface CrudRepositoryInterface
+interface CrudServiceInterface
 {
     /**
      * Initialize with repository instance

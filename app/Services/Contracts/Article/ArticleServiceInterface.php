@@ -2,7 +2,9 @@
 
 namespace App\Services\Contracts\Article;
 
-interface ArticleServiceInterface
+use App\Services\Contracts\CrudServiceInterface;
+
+interface ArticleServiceInterface extends CrudServiceInterface
 {
-    
+
 }

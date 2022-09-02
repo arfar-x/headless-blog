@@ -198,7 +198,7 @@ return [
         /**
          * Services/Repositories Service Provider
          */
-        App\Providers\ServiceRepositoryProvider::class,
+        App\Providers\DynamicRepositoryServiceProvider::class,
 
     ],
 

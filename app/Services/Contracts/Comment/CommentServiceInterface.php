@@ -2,7 +2,9 @@
 
 namespace App\Services\Contracts\Comment;
 
-interface CommentServiceInterface
+use App\Services\Contracts\CrudServiceInterface;
+
+interface CommentServiceInterface extends CrudServiceInterface
 {
-    
+
 }
