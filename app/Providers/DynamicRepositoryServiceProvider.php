@@ -44,7 +44,7 @@ class DynamicRepositoryServiceProvider extends ServiceProvider
             $this->app->singletonIf($interface, function () use ($serviceName) {
                 /**
                  * ! Uncovered mechanism (not tested); what if that a service has several dependencies (or Variadic).
-                 *  E.g. $object = new ServiceClass(new Dependency, new SomthingElse, new OneMoreClass)
+                 *  E.g. $object = new ServiceClass(new Dependency, new SomethingElse, new OneMoreClass)
                  */
                 return new $this->services[$serviceName]($this->extractDependencies($serviceName));
             });
@@ -58,23 +58,23 @@ class DynamicRepositoryServiceProvider extends ServiceProvider
      */
     protected function extractDependencies(string $serviceName)
     {
-        $dependency = $this->dependencies[$serviceName];
+        $serviceDependencies = $this->dependencies[$serviceName];
 
-        if (is_array($dependency)) {
+        if (is_array($serviceDependencies)) {
 
-            foreach ($dependency as $interface => $repository) {
+            foreach ($serviceDependencies as $interface => $dependency) {
 
-                $this->app->singletonIf($interface, function () use ($repository) {
-                    return new $repository;
+                $this->app->singletonIf($interface, function () use ($dependency) {
+                    return new $dependency;
                 });
 
                 return $this->app->make($interface);
             }
         } else {
 
-            $this->app->singletonIf($dependency);
+            $this->app->singletonIf($serviceDependencies);
 
-            return $this->app->make($dependency);
+            return $this->app->make($serviceDependencies);
         }
     }
 }
